@@ -3,13 +3,9 @@
     "extends": [
         "config:recommended"
     ],
-    "vulnerabilityAlerts": {
-        "enabled": false
-    },
     "dependencyDashboard": false,
     "prConcurrentLimit": 0,
     "prHourlyLimit": 0,
     "branchPrefix": "deps/",
-    "additionalBranchPrefix": "semver1.3.x/",
     "ignorePaths": []
 }
