@@ -9,8 +9,8 @@ formula ax^2+bx+c
 the CC BY-NC-SA 3.0 Int'l License. To view a copy of the license,
 visit https://creativecommons.org.
 
-v26.8.18.2
-(8/18/2026)
+v26.8.21
+(8/21/2026)
 """
 
 
@@ -20,12 +20,11 @@ from typing import Union
 
 def find_factors(c):
   factor_list = []
-  try:
-    for number in range(c, (c / 2) + 1):
-      if c % number == 0:
-        factor_list.append(float(number), float(c / number),)
-  except TypeError:
-    pass
+  for number in range(int((c + 1) / 2)):
+    if number == 0:
+      continue
+    if c % number == 0:
+      factor_list.append((float(number), float(c / number),))
 
   return factor_list
 
@@ -83,9 +82,15 @@ def evaluate(a: Union[int, str],
   else:
     print("no solution!")
 
+  print("\n")
+
+  if a > 1:
+    print(f"Factoring quadratics with an 'a' value of {a} is not yet supported.")
+    return
+  
   c2 = a * c
   factors: list[tuple[int]] = find_factors(c2)
-  factors.append((1.0,a*c,))
+  factors.append((1.0,c2,))
   m = None
   p = None
   
@@ -93,23 +98,25 @@ def evaluate(a: Union[int, str],
     print(f"Factored form: Cannot factor due to decimals!")
     return
 
-  # c2 = int(c2)
+  c2 = int(c2)
 
-  # for item in factors:
-  #   for k, l in tuple(item):
-  #     if k * l == a * c and k+l == b:
-  #       m = k
-  #       p = l
-  #       break
-
-  # if m or p:
-  #   if int(m) > 0 and not str(m).startswith('+'):
-  #     m = '+' + str(m)
-  #   if int(p) > 0 and not str(p).startswith('+'):
-  #     p = '+' + str(p)
-  #   print(f"Factored form: (x{m})(x{p})")
-  # else:
-  #   print(f"Factored form: Not factorable!")
+  for item in factors:
+    k = item[0]
+    l = item[1]
+    if k * l == c2 and k+l == b:
+      m = k
+      p = l
+      break
+  
+  if m or p:
+    if int(m) > 0 and not str(m).startswith('+'):
+      m = '+' + str(m)
+    if int(p) > 0 and not str(p).startswith('+'):
+      p = '+' + str(p)
+    print(f"Factored form: (x{m.removesuffix(".0")})(x{p.removesuffix(".0")})")
+    return
+  
+  print(f"Factored form: Not factorable!")
 
 if __name__ == "__main__":
   a=input('a: ')
