@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=84.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "boss-1s-math-tools"
+version = "2026.8.1"
+description = "this is what you do when you hate math - you automate it."
+readme = "README.md"
+requires-python = "3.12"
+license = {text = "Unlicense"}
+license-files = ["LICENSE"]
+authors = [{name = "Boss_1s"}]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Natural Language :: English",
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Utilities",
+]
+
+[project.urls]
+Repository = "https://github.com/Boss-1s/tools/"
