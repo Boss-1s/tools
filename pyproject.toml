@@ -7,7 +7,7 @@ name = "boss-1s-math-tools"
 version = "2026.8.1"
 description = "this is what you do when you hate math - you automate it."
 readme = "README.md"
-requires-python = "3.12"
+requires-python = "3.15.2"
 license = {text = "Unlicense"}
 license-files = ["LICENSE"]
 authors = [{name = "Boss_1s"}]
